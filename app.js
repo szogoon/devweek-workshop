@@ -1,6 +1,6 @@
 import apiKey from './config.js';
 
-var SanFrancisco = 'Galvanize, San Francisco'
+var SanFrancisco = 'Łódź, Polska'
 
 var map = tt.map({
     key: apiKey,
