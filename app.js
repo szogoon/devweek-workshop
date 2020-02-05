@@ -1,5 +1,7 @@
 import apiKey from './config.js';
 
+var SanFrancisco = 'Galvanize, San Francisco'
+
 var map = tt.map({
     key: apiKey,
     container: 'map',
@@ -7,3 +9,17 @@ var map = tt.map({
 });
 map.addControl(new tt.FullscreenControl());
 map.addControl(new tt.NavigationControl());
+
+map.on('load', function() {
+    tt.services.fuzzySearch({
+        key: apiKey,
+        query: SanFrancisco
+    })
+    .go()
+    .then((response) => {
+        map.flyTo(
+            {center: response.results[0].position,
+            zoom: 18}
+        )
+    })
+})
