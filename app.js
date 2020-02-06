@@ -13,6 +13,7 @@ map.addControl(new tt.NavigationControl());
 map.on('load', function() {
     tt.services.fuzzySearch({
         key: apiKey,
+        idxSet: "Geo",
         query: SanFrancisco
     })
     .go()
@@ -31,8 +32,8 @@ document.querySelector('#searchButton').addEventListener('click', function() {
 })
 function moveMapToFirstResult(response) {
     map.flyTo(
-        {center: response.results[0].position,
-        zoom: 13}
+       {center: response.results[0].position,
+       zoom: 12}
     )
 }
 function createMarkersFromSearch(response) {
@@ -45,7 +46,7 @@ function createMarkersFromSearch(response) {
     })
 }
 function createPopupContent(result) {
-    return result.poi.name + '<br>' + ifDefined(result.address.streetNumber) + ' ' + 
+    return '<strong>' + result.poi.name + '</strong><br>' + ifDefined(result.address.streetNumber) + ' ' + 
         ifDefined(result.address.streetName) + ' ' + result.address.municipality;
 }
 function ifDefined(tmp) {
