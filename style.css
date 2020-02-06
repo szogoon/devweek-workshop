@@ -2,3 +2,7 @@
     height: 500px;
     width: 500px;
 }
+.tt-form-label {
+    position: fixed;
+    z-index: 1;
+}
