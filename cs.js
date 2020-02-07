@@ -5,7 +5,7 @@ var SanFrancisco = 'San Francisco, California'
 var categories = {
     Italian: '7315025',
     Thai: '7315048',
-    Polish: '7315037'
+    French: '7315017'
 }
 
 var map = tt.map({
@@ -65,7 +65,7 @@ function createPopupContent(result) {
     return '<strong>' + result.poi.name + '</strong><br>' + 
         ifDefined(result.address.streetNumber) + ' ' + ifDefined(result.address.streetName) + ' ' + result.address.municipality + '<br>' +
         ((result.poi.phone != undefined) ? 'Phone:' + result.poi.phone + '<br>' : '') +
-        ((result.poi.url != undefined) ? '<a href="http://' + result.poi.url + '">Website</a><br>': '');
+        ((result.poi.url != undefined) ? '<a href="http://' + result.poi.url + '" target="_blank">Website</a><br>': '');
 }
 function ifDefined(tmp) {
     return (tmp != undefined) ? tmp : '';

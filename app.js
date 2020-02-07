@@ -46,8 +46,10 @@ function createMarkersFromSearch(response) {
     })
 }
 function createPopupContent(result) {
-    return '<strong>' + result.poi.name + '</strong><br>' + ifDefined(result.address.streetNumber) + ' ' + 
-        ifDefined(result.address.streetName) + ' ' + result.address.municipality;
+    return '<strong>' + result.poi.name + '</strong><br>' + 
+        ifDefined(result.address.streetNumber) + ' ' + ifDefined(result.address.streetName) + ' ' + result.address.municipality + '<br>' +
+        ((result.poi.phone != undefined) ? 'Phone:' + result.poi.phone + '<br>' : '') +
+        ((result.poi.url != undefined) ? '<a href="http://' + result.poi.url + '" target="_blank">Website</a><br>': '');
 }
 function ifDefined(tmp) {
     return (tmp != undefined) ? tmp : '';
