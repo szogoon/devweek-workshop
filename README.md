@@ -1,1 +1,1 @@
-# devweek-workshop
+# Example on how to use TomTom Maps SDK for Web with Search API
